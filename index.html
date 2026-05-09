@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inici - DOCUSALUT Hospital Verge dels Lliris</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+    <div class="bg-warning text-dark text-center py-2 px-3 small fw-bold">
+        <i class="fa-solid fa-circle-info me-2"></i> Novetat: Ara pots accedir a la teua documentació de forma segura utilitzant el sistema Cl@ve i DNIe.
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-hospital-primary shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fa-solid fa-house-medical fa-2x me-2"></i>
+                <div>
+                    <h1 class="h5 mb-0 fw-bold">DOCUSALUT</h1>
+                    <small class="d-block text-white-50" style="font-size: 0.75rem;">Hospital Verge dels Lliris d'Alcoi</small>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active fw-bold" href="index.html">Inici</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Atenció al Pacient</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="login.html" class="btn btn-light text-hospital-primary fw-bold px-4 rounded-pill shadow-sm">
+                            <i class="fa-solid fa-user me-2"></i> Àrea Privada
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1 view-section">
+        
+        <section class="bg-white border-bottom py-5 shadow-sm">
+            <div class="container py-lg-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 pe-lg-5 mb-5 mb-lg-0">
+                        <span class="badge bg-success bg-opacity-10 text-success border border-success rounded-pill px-3 py-2 mb-3 fw-bold">
+                            <i class="fa-solid fa-leaf me-1"></i> Tràmits 100% Sense Paper
+                        </span>
+                        <h2 class="display-4 fw-bolder text-hospital-primary mb-4" style="line-height: 1.2;">
+                            La teua documentació mèdica,<br> <span class="text-hospital-secondary">a un clic de distància.</span>
+                        </h2>
+                        <p class="lead text-muted mb-4">
+                            Estalvia temps i desplaçaments. Sol·licita informes clínics, certificats i justificants de l'Hospital Verge dels Lliris des de qualsevol dispositiu de forma totalment segura i confidencial.
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="login.html" class="btn btn-hospital-primary btn-lg rounded-pill px-4 shadow">
+                                Fer nova sol·licitud <i class="fa-solid fa-arrow-right ms-2"></i>
+                            </a>
+                            <a href="#com-funciona" class="btn btn-outline-secondary btn-lg rounded-pill px-4">
+                                Com funciona?
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center position-relative">
+                        <div class="position-absolute top-50 start-50 translate-middle w-100 h-100 bg-hospital-secondary rounded-circle opacity-10" style="max-width: 400px; max-height: 400px; filter: blur(30px);"></div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3203/3203071.png" alt="Il·lustració metge" class="img-fluid position-relative" style="max-width: 80%;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container py-5 mt-4">
+            <div class="text-center mb-5">
+                <h3 class="fw-bold text-hospital-primary">Què pots sol·licitar?</h3>
+                <p class="text-muted">Gestió directa amb la Unitat de Documentació Clínica (UDCA)</p>
+            </div>
+            
+            <div class="row g-4 text-center justify-content-center">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 pt-3 transition-hover">
+                        <div class="card-body">
+                            <div class="bg-hospital-secondary bg-opacity-10 rounded-circle d-inline-flex p-4 mb-3">
+                                <i class="fa-solid fa-file-waveform fa-2x text-hospital-secondary"></i>
+                            </div>
+                            <h5 class="card-title fw-bold">Informes Clínics</h5>
+                            <p class="card-text text-muted small">Còpies d'altes hospitalàries, informes d'urgències, consultes externes i resultats de proves diagnòstiques.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 pt-3 transition-hover">
+                        <div class="card-body">
+                            <div class="bg-hospital-secondary bg-opacity-10 rounded-circle d-inline-flex p-4 mb-3">
+                                <i class="fa-solid fa-certificate fa-2x text-hospital-secondary"></i>
+                            </div>
+                            <h5 class="card-title fw-bold">Certificats Mèdics</h5>
+                            <p class="card-text text-muted small">Emissió de certificats oficials sobre el teu estat de salut actual signats per un facultatiu especialista.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 pt-3 transition-hover">
+                        <div class="card-body">
+                            <div class="bg-hospital-secondary bg-opacity-10 rounded-circle d-inline-flex p-4 mb-3">
+                                <i class="fa-regular fa-calendar-check fa-2x text-hospital-secondary"></i>
+                            </div>
+                            <h5 class="card-title fw-bold">Justificants Assistència</h5>
+                            <p class="card-text text-muted small">Documentació vàlida per a l'empresa o centre educatiu que justifica la teua presència a l'hospital.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="com-funciona" class="bg-hospital-primary text-white py-5">
+            <div class="container py-4">
+                <h3 class="text-center fw-bold mb-5">Un procés ràpid i transparent</h3>
+                <div class="row text-center g-4">
+                    <div class="col-md-4">
+                        <i class="fa-solid fa-id-card-clip fa-3x mb-3 text-warning"></i>
+                        <h5 class="fw-bold">1. Identifica't</h5>
+                        <p class="small text-white-50 px-3">Accedix amb el teu SIP i DNI o mitjançant sistemes electrònics assegurances (Cl@ve).</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fa-solid fa-keyboard fa-3x mb-3 text-warning"></i>
+                        <h5 class="fw-bold">2. Fes la petició</h5>
+                        <p class="small text-white-50 px-3">Emplena un senzill formulari indicant quin document necessites i el motiu.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fa-solid fa-cloud-arrow-down fa-3x mb-3 text-warning"></i>
+                        <h5 class="fw-bold">3. Rep el document</h5>
+                        <p class="small text-white-50 px-3">Quan la UDCA el valide, rebràs un avís i podràs descarregar-lo signat digitalment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-dark text-white pt-5 pb-3 mt-auto">
+        <div class="container">
+            <div class="row gy-4 mb-4 border-bottom border-secondary pb-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white fw-bold mb-3"><i class="fa-solid fa-house-medical me-2"></i>DOCUSALUT</h5>
+                    <p class="small text-muted mb-2">Plataforma oficial de gestió documental de l'Hospital Verge dels Lliris d'Alcoi.</p>
+                    <p class="small text-muted"><i class="fa-solid fa-location-dot me-2"></i>Carrer de l'Olivera, s/n, 03804 Alcoi, Alacant</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="text-uppercase fw-bold mb-3">Enllaços d'Interés</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-white">Portal Sanitat GVA</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-white">Normativa de Protecció de Dades</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-white">Guia del Pacient</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h6 class="text-uppercase fw-bold mb-3">Contacte UDCA</h6>
+                    <ul class="list-unstyled small text-muted">
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> 965 112 233 (Ext. 405)</li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> udca_alcoi@gva.es</li>
+                        <li class="mb-2"><i class="fa-solid fa-clock me-2"></i> Dilluns a Divendres: 09:00 - 14:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center small text-muted d-flex justify-content-between align-items-center flex-wrap">
+                <span>&copy; 2026 Conselleria de Sanitat Universal i Salut Pública. Tots els drets reservats.</span>
+                <div class="mt-2 mt-md-0">
+                    <i class="fa-brands fa-twitter fs-5 me-3 hover-white cursor-pointer"></i>
+                    <i class="fa-brands fa-facebook fs-5 me-3 hover-white cursor-pointer"></i>
+                    <i class="fa-brands fa-instagram fs-5 hover-white cursor-pointer"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="admin.html" class="btn btn-warning shadow-lg position-fixed bottom-0 end-0 m-4 fw-bold" style="z-index: 1050; border-radius: 50px;">
+        <i class="fa-solid fa-user-shield me-2"></i> Accés UDCA (Demo)
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

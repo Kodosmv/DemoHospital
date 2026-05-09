@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Espai Pacient - DOCUSALUT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-dark bg-hospital-primary shadow-sm sticky-top">
+        <div class="container-fluid px-4">
+            <span class="navbar-brand"><i class="fa-solid fa-user-injured me-2"></i> Portal del Pacient GVA</span>
+            <div class="d-flex align-items-center text-white">
+                <span class="me-3 d-none d-md-inline"><i class="fa-solid fa-bell"></i></span>
+                <span class="me-3 d-none d-md-inline">Benvingut/da, Pacient</span>
+                <button class="btn btn-outline-light btn-sm" onclick="logout()"><i class="fa-solid fa-power-off"></i> Eixir</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid view-section">
+        <div class="row">
+            <div class="col-md-3 col-lg-2 p-0 bg-white shadow-sm" style="min-height: calc(100vh - 56px);">
+                <div class="list-group list-group-flush mt-3">
+                    <a href="#" class="list-group-item list-group-item-action py-3 text-muted"><i class="fa-solid fa-house-chimney me-2 w-20px"></i> Inici / Resum</a>
+                    <a href="#" class="list-group-item list-group-item-action py-3 text-muted"><i class="fa-solid fa-calendar-check me-2 w-20px"></i> Cites Mèdiques <span class="badge bg-danger rounded-pill float-end">1</span></a>
+                    <a href="#" class="list-group-item list-group-item-action py-3 text-muted"><i class="fa-solid fa-pills me-2 w-20px"></i> Receptes i Tractaments</a>
+                    <a href="#" class="list-group-item list-group-item-action py-3 text-muted"><i class="fa-solid fa-heart-pulse me-2 w-20px"></i> Historial Clínic</a>
+                    <a href="pacient.html" class="list-group-item list-group-item-action py-3 active text-white bg-hospital-secondary border-0 fw-bold"><i class="fa-solid fa-folder-open me-2 w-20px"></i> Tràmits i Documents</a>
+                    <a href="#" class="list-group-item list-group-item-action py-3 text-muted"><i class="fa-solid fa-gear me-2 w-20px"></i> Configuració</a>
+                </div>
+            </div>
+
+            <main class="col-md-9 col-lg-10 p-4">
+                <h3 class="text-hospital-primary mb-4 border-bottom pb-2">Gestió Documental (UDCA)</h3>
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="card shadow-sm border-0 h-100">
+                            <div class="card-header bg-white pt-4 pb-0"><h5 class="card-title text-hospital-primary"><i class="fa-solid fa-plus-circle me-2"></i>Nova Sol·licitud</h5></div>
+                            <div class="card-body">
+                                <form id="requestForm">
+                                    <div class="mb-2"><input type="text" id="reqName" class="form-control bg-light" placeholder="Nom Complet" required></div>
+                                    <div class="mb-2"><input type="text" id="reqSip" class="form-control" readonly></div>
+                                    <div class="mb-2"><input type="email" id="reqEmail" class="form-control bg-light" placeholder="Correu electrònic" required></div>
+                                    <div class="mb-2">
+                                        <select id="reqType" class="form-select bg-light" required>
+                                            <option value="" disabled selected>Selecciona document...</option>
+                                            <option value="Informe Clínic">Informe Clínic</option>
+                                            <option value="Certificat Mèdic">Certificat Mèdic</option>
+                                            <option value="Justificant d'Assistència">Justificant d'Assistència</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3"><textarea id="reqReason" class="form-control bg-light" placeholder="Motiu de la sol·licitud (Breu)" rows="3" required></textarea></div>
+                                    <button type="submit" class="btn btn-hospital-primary w-100 fw-bold">Enviar Sol·licitud <i class="fa-solid fa-paper-plane ms-1"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8 mb-4">
+                        <div class="card shadow-sm border-0 h-100">
+                            <div class="card-header bg-white pt-4 pb-0"><h5 class="card-title text-hospital-primary"><i class="fa-solid fa-clock-rotate-left me-2"></i>El meu historial de tràmits</h5></div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle mb-0">
+                                        <thead class="table-light"><tr><th class="ps-4">Data</th><th>Document</th><th>Estat</th><th>Accions</th></tr></thead>
+                                        <tbody id="patientTableBody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal fade" id="surveyModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-hospital-primary text-white border-0">
+                    <h5 class="modal-title">Enquesta de Satisfacció</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <p class="text-muted mb-4">L'arxiu s'ha descarregat. Ens ajudes a millorar valorant el tràmit?</p>
+                    <form id="surveyForm">
+                        
+                        <div class="mb-4 text-start">
+                            <div class="d-flex justify-content-between align-items-end mb-2">
+                                <label class="form-label fw-bold text-hospital-primary mb-0">Facilitat d'ús</label>
+                                <span class="badge bg-success fs-6 shadow-sm" id="valUsability">5 - Excel·lent</span>
+                            </div>
+                            <input type="range" class="form-range custom-slider" min="1" max="5" step="1" id="surveyUsability" value="5" oninput="updateSliderLabel('surveyUsability', 'valUsability')">
+                            <div class="d-flex justify-content-between text-muted small mt-1 px-1 fw-bold">
+                                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 text-start">
+                            <div class="d-flex justify-content-between align-items-end mb-2">
+                                <label class="form-label fw-bold text-hospital-primary mb-0">Seguretat i privacitat</label>
+                                <span class="badge bg-success fs-6 shadow-sm" id="valSecurity">5 - Excel·lent</span>
+                            </div>
+                            <input type="range" class="form-range custom-slider" min="1" max="5" step="1" id="surveySecurity" value="5" oninput="updateSliderLabel('surveySecurity', 'valSecurity')">
+                            <div class="d-flex justify-content-between text-muted small mt-1 px-1 fw-bold">
+                                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 text-start">
+                            <textarea id="surveyFeedback" class="form-control bg-light border-0" rows="2" placeholder="Algun suggeriment de millora? (Opcional)"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 fw-bold py-2 rounded-pill shadow-sm">
+                            Enviar Valoració Anònima <i class="fa-solid fa-paper-plane ms-1"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+</body>
+</html>

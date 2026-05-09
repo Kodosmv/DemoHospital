@@ -1,0 +1,172 @@
+/* =======================================================
+   Variables de Color Institucionales (DOCUSALUT)
+======================================================= */
+:root {
+    --hospital-primary: #004d80; /* Azul oscuro corporativo */
+    --hospital-secondary: #0099cc; /* Azul claro para detalles */
+    --bg-light-gray: #f8f9fa; /* Fondo suave para reducir fatiga visual */
+}
+
+/* =======================================================
+   Estilos Base
+======================================================= */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light-gray);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1; /* Para que el pie de página quede siempre abajo */
+}
+
+/* =======================================================
+   Clases Utilitarias Personalizadas (Sobrescriben Bootstrap)
+======================================================= */
+.bg-hospital-primary { 
+    background-color: var(--hospital-primary) !important; 
+}
+.bg-hospital-secondary { 
+    background-color: var(--hospital-secondary) !important; 
+}
+
+.text-hospital-primary { 
+    color: var(--hospital-primary) !important; 
+}
+.text-hospital-secondary { 
+    color: var(--hospital-secondary) !important; 
+}
+
+/* =======================================================
+   Botones Personalizados
+======================================================= */
+.btn-hospital-primary {
+    background-color: var(--hospital-primary);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-hospital-primary:hover {
+    background-color: #003355; /* Un tono más oscuro al pasar el ratón */
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-warning.position-fixed:hover {
+    transform: scale(1.05); /* Efecto pop para el botón demo */
+}
+
+/* =======================================================
+   Animación de Entrada de Páginas (SPA Feel)
+======================================================= */
+.view-section {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(15px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* =======================================================
+   Tarjetas (Cards) e Iconos
+======================================================= */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-body > .fa-3x {
+    transition: transform 0.3s ease;
+}
+
+.card:hover > .card-body > .fa-3x {
+    transform: scale(1.1);
+}
+
+/* Efecto hover extra para las tarjetas de la landing page (index) */
+.transition-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.transition-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* =======================================================
+   Utilidades para los menús laterales (Portal Paciente)
+======================================================= */
+.w-20px {
+    width: 24px;
+    text-align: center;
+}
+.list-group-item:hover {
+    background-color: var(--bg-light-gray);
+    color: var(--hospital-primary) !important;
+}
+
+/* =======================================================
+   Enlaces del Footer
+======================================================= */
+.hover-white {
+    transition: color 0.2s ease;
+}
+.hover-white:hover {
+    color: #ffffff !important;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* =======================================================
+   Deslizadores (Sliders) Personalizados y Claros para la Encuesta
+======================================================= */
+.custom-slider {
+    height: 8px; /* Barra más gruesa */
+    background: #e9ecef;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Estilizar la "bolita" (Thumb) para navegadores WebKit (Chrome, Safari, Edge) */
+.custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px; /* Mucho más grande y clicable */
+    height: 28px;
+    border-radius: 50%;
+    background: var(--hospital-primary);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    border: 3px solid white;
+    transition: transform 0.1s ease;
+}
+
+.custom-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15); /* Crece ligeramente al pasar el ratón */
+}
+
+/* Estilizar la "bolita" (Thumb) para Firefox */
+.custom-slider::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--hospital-primary);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    border: 3px solid white;
+    transition: transform 0.1s ease;
+}
+
+.custom-slider::-moz-range-thumb:hover {
+    transform: scale(1.15);
+}
