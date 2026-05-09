@@ -36,6 +36,7 @@
             <main class="col-md-9 col-lg-10 p-4">
                 <h3 class="text-hospital-primary mb-4 border-bottom pb-2">Gestió Documental (UDCA)</h3>
                 <div class="row">
+                    
                     <div class="col-lg-4 mb-4">
                         <div class="card shadow-sm border-0 h-100">
                             <div class="card-header bg-white pt-4 pb-0"><h5 class="card-title text-hospital-primary"><i class="fa-solid fa-plus-circle me-2"></i>Nova Sol·licitud</h5></div>
@@ -44,15 +45,25 @@
                                     <div class="mb-2"><input type="text" id="reqName" class="form-control bg-light" placeholder="Nom Complet" required></div>
                                     <div class="mb-2"><input type="text" id="reqSip" class="form-control" readonly></div>
                                     <div class="mb-2"><input type="email" id="reqEmail" class="form-control bg-light" placeholder="Correu electrònic" required></div>
+                                    
+                                    <div class="mb-2">
+                                        <select id="reqAppointment" class="form-select bg-light border-primary border-opacity-50" required>
+                                            <option value="" disabled selected>-- Selecciona l'acte mèdic --</option>
+                                            </select>
+                                        <small class="text-muted" style="font-size: 0.7rem;"><i class="fa-solid fa-circle-info"></i> Selecciona la cita sobre la qual demanes el document.</small>
+                                    </div>
+
                                     <div class="mb-2">
                                         <select id="reqType" class="form-select bg-light" required>
-                                            <option value="" disabled selected>Selecciona document...</option>
-                                            <option value="Informe Clínic">Informe Clínic</option>
+                                            <option value="" disabled selected>Quin tipus de document necessites?</option>
+                                            <option value="Informe Clínic">Informe Clínic (Resultats, Diagnòstic...)</option>
                                             <option value="Certificat Mèdic">Certificat Mèdic</option>
                                             <option value="Justificant d'Assistència">Justificant d'Assistència</option>
                                         </select>
                                     </div>
-                                    <div class="mb-3"><textarea id="reqReason" class="form-control bg-light" placeholder="Motiu de la sol·licitud (Breu)" rows="3" required></textarea></div>
+                                    
+                                    <div class="mb-3"><textarea id="reqReason" class="form-control bg-light" placeholder="Per a què necessites el document? (Ex: Assegurança, Baixa laboral...)" rows="2" required></textarea></div>
+                                    
                                     <button type="submit" class="btn btn-hospital-primary w-100 fw-bold">Enviar Sol·licitud <i class="fa-solid fa-paper-plane ms-1"></i></button>
                                 </form>
                             </div>
@@ -65,7 +76,7 @@
                             <div class="card-body p-0">
                                 <div class="table-responsive">
                                     <table class="table table-hover align-middle mb-0">
-                                        <thead class="table-light"><tr><th class="ps-4">Data</th><th>Document</th><th>Estat</th><th>Accions</th></tr></thead>
+                                        <thead class="table-light"><tr><th class="ps-4">Data</th><th>Document i Cita</th><th>Estat</th><th>Accions</th></tr></thead>
                                         <tbody id="patientTableBody"></tbody>
                                     </table>
                                 </div>
