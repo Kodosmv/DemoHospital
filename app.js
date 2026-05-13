@@ -1,7 +1,7 @@
 // --- DATOS FALSOS: HISTORIAL DE CITAS DEL PACIENTE ---
 const mockHistorialMedic = [
-    "05/05/2026 | Radiologia - Ecografia abdominal",
-    "02/05/2026 | Traumatologia - Radiografia de tòrax",
+    "05/05/2026 | Alergologo - Prueba de alergias",
+    "02/05/2026 | Radiologia - Radiografia",
     "15/04/2026 | Urgències - Atenció per esquinç turmell",
     "10/03/2026 | Cardiologia - Electrocardiograma",
     "22/01/2026 | Medicina Interna - Analítica general"

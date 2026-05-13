@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cites Mèdiques - DOCUSALUT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-dark bg-hospital-primary shadow-sm sticky-top">
+        <div class="container-fluid px-4">
+            <span class="navbar-brand"><i class="fa-solid fa-user-injured me-2"></i> Portal del Pacient GVA</span>
+            <div class="d-flex align-items-center text-white">
+                <span class="me-3 d-none d-md-inline"><i class="fa-solid fa-bell"></i></span>
+                <span class="me-3 d-none d-md-inline">Benvingut/da, Pacient</span>
+                <button class="btn btn-outline-light btn-sm" onclick="logout()"><i class="fa-solid fa-power-off"></i> Eixir</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid view-section">
+        <div class="row">
+            
+            <div class="col-md-3 col-lg-2 p-0 bg-white shadow-sm" style="min-height: calc(100vh - 56px);">
+                <div class="list-group list-group-flush mt-3">
+                    <a href="#" class="list-group-item list-group-item-action py-3 text-muted"><i class="fa-solid fa-house-chimney me-2 w-20px"></i> Inici / Resum</a>
+                    
+                    <a href="cites.html" class="list-group-item list-group-item-action py-3 active text-white bg-hospital-secondary border-0 fw-bold">
+                        <i class="fa-solid fa-calendar-check me-2 w-20px"></i> Cites Mèdiques <span class="badge bg-danger rounded-pill float-end">1</span>
+                    </a>
+                    
+                    <a href="#" class="list-group-item list-group-item-action py-3 text-muted"><i class="fa-solid fa-pills me-2 w-20px"></i> Receptes i Tractaments</a>
+                    <a href="#" class="list-group-item list-group-item-action py-3 text-muted"><i class="fa-solid fa-heart-pulse me-2 w-20px"></i> Historial Clínic</a>
+                    
+                    <a href="pacient.html" class="list-group-item list-group-item-action py-3 text-muted"><i class="fa-solid fa-folder-open me-2 w-20px"></i> Tràmits i Documents</a>
+                    
+                    <a href="#" class="list-group-item list-group-item-action py-3 text-muted"><i class="fa-solid fa-gear me-2 w-20px"></i> Configuració</a>
+                </div>
+            </div>
+
+            <main class="col-md-9 col-lg-10 p-4">
+                
+                <div class="d-flex justify-content-between align-items-end mb-4 border-bottom pb-2">
+                    <h3 class="text-hospital-primary mb-0"><i class="fa-solid fa-calendar-days me-2"></i> Gestió de Cites Mèdiques</h3>
+                    <button class="btn btn-hospital-primary fw-bold rounded-pill px-4 shadow-sm" onclick="Swal.fire('Nova Cita', 'En un entorn real, açò obriria el calendari per a triar dia i hora amb el metge assignat.', 'info')">
+                        <i class="fa-solid fa-plus me-1"></i> Sol·licitar Cita
+                    </button>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-5 mb-4">
+                        <h5 class="text-muted fw-bold mb-3 small text-uppercase">Pròxima Cita Programada</h5>
+                        
+                        <div class="card shadow border-0 rounded-4 overflow-hidden h-100 transition-hover">
+                            <div class="bg-hospital-secondary text-white p-3 d-flex justify-content-between align-items-center">
+                                <span class="fw-bold"><i class="fa-regular fa-clock me-1"></i> Confirmada</span>
+                                <span class="badge bg-white text-hospital-secondary">D'ací a 15 dies</span>
+                            </div>
+                            
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="bg-light rounded text-center p-3 me-3 border border-2 border-primary border-opacity-25" style="min-width: 80px;">
+                                        <h3 class="text-hospital-primary fw-bolder mb-0">28</h3>
+                                        <span class="text-muted small text-uppercase fw-bold">Maig</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="fw-bold mb-1">Dermatologia</h4>
+                                        <h5 class="text-hospital-secondary mb-0"><i class="fa-solid fa-user-doctor me-1 small"></i> Dr. Antoni Miralles</h5>
+                                    </div>
+                                </div>
+                                
+                                <ul class="list-unstyled mb-4 text-muted">
+                                    <li class="mb-2"><i class="fa-solid fa-clock w-20px text-hospital-primary"></i> <strong>Hora:</strong> 10:30 h</li>
+                                    <li class="mb-2"><i class="fa-solid fa-location-dot w-20px text-hospital-primary"></i> <strong>Lloc:</strong> Hospital Verge dels Lliris</li>
+                                    <li><i class="fa-solid fa-door-open w-20px text-hospital-primary"></i> <strong>Consulta:</strong> 12 (Planta 2)</li>
+                                </ul>
+
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-outline-danger w-50" onclick="Swal.fire('Anul·lar cita', 'Estàs segur que vols anul·lar aquesta cita?', 'warning')"><i class="fa-solid fa-calendar-xmark me-1"></i> Anul·lar</button>
+                                    <button class="btn btn-outline-secondary w-50"><i class="fa-solid fa-print me-1"></i> Justificant</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 mb-4">
+                        <h5 class="text-muted fw-bold mb-3 small text-uppercase">Historial de Visites</h5>
+                        
+                        <div class="card shadow-sm border-0 h-100">
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th class="ps-4">Data</th>
+                                                <th>Especialitat / Motiu</th>
+                                                <th>Estat</th>
+                                                <th>Accions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="ps-4 fw-bold text-muted">05/05/2026</td>
+                                                <td>
+                                                    <strong>Radiologia</strong><br>
+                                                    <span class="small text-muted">Ecografia abdominal</span>
+                                                </td>
+                                                <td><span class="badge bg-success bg-opacity-10 text-success border border-success"><i class="fa-solid fa-check"></i> Realitzada</span></td>
+                                                <td><a href="pacient.html" class="btn btn-sm btn-outline-primary" title="Demanar document sobre aquesta cita">Demanar Informe</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-4 fw-bold text-muted">02/05/2026</td>
+                                                <td>
+                                                    <strong>Traumatologia</strong><br>
+                                                    <span class="small text-muted">Radiografia de tòrax</span>
+                                                </td>
+                                                <td><span class="badge bg-success bg-opacity-10 text-success border border-success"><i class="fa-solid fa-check"></i> Realitzada</span></td>
+                                                <td><a href="pacient.html" class="btn btn-sm btn-outline-primary">Demanar Informe</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-4 fw-bold text-muted">15/04/2026</td>
+                                                <td>
+                                                    <strong>Urgències</strong><br>
+                                                    <span class="small text-muted">Atenció per esquinç turmell</span>
+                                                </td>
+                                                <td><span class="badge bg-success bg-opacity-10 text-success border border-success"><i class="fa-solid fa-check"></i> Realitzada</span></td>
+                                                <td><a href="pacient.html" class="btn btn-sm btn-outline-primary">Demanar Informe</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-4 fw-bold text-muted">10/03/2026</td>
+                                                <td>
+                                                    <strong>Cardiologia</strong><br>
+                                                    <span class="small text-muted">Electrocardiograma</span>
+                                                </td>
+                                                <td><span class="badge bg-success bg-opacity-10 text-success border border-success"><i class="fa-solid fa-check"></i> Realitzada</span></td>
+                                                <td><a href="pacient.html" class="btn btn-sm btn-outline-primary">Demanar Informe</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="ps-4 fw-bold text-muted">22/01/2026</td>
+                                                <td>
+                                                    <strong>Medicina Interna</strong><br>
+                                                    <span class="small text-muted">Analítica general</span>
+                                                </td>
+                                                <td><span class="badge bg-success bg-opacity-10 text-success border border-success"><i class="fa-solid fa-check"></i> Realitzada</span></td>
+                                                <td><a href="pacient.html" class="btn btn-sm btn-outline-primary">Demanar Informe</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white text-center py-3">
+                                <a href="#" class="text-decoration-none small text-hospital-secondary fw-bold">Veure l'historial complet <i class="fa-solid fa-angle-down"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+</body>
+</html>
